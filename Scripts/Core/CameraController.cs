@@ -4,13 +4,19 @@ public class CameraController : MonoBehaviour
 {
     //Room camera
     [SerializeField] private float speed;
+    
     private float currentPosX; //to tell which postion the camera has to go 
+    
     private Vector3 velocity = Vector3.zero;
 
     //Follow player
     [SerializeField] private Transform player; //Refrence to the object the camera is following 
+    
     [SerializeField] private float aheadDistance; //How far the camera allows you to look fowrad 
+    
     [SerializeField] private float cameraSpeed; //Speed of the camera 
+    
+    
     private float lookAhead;
 
     private void Update()
