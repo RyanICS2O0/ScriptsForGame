@@ -2,18 +2,18 @@ using UnityEngine;
 
 public class MeleeEnemy : MonoBehaviour
 {
-    [Header ("Attack Parameters")]
+    [Header ("Attack Parameters")] //Where attacks will be shot between  
 
-    [SerializeField] private float attackCooldown;
+    [SerializeField] private float attackCooldown; //Cool down of the enemies attack
 
-    [SerializeField] private float range;
+    [SerializeField] private float range; //Range of movement 
 
 
     [Header ("Collider Parameters")]
 
-    [SerializeField] private float colliderDistance;
+    [SerializeField] private float colliderDistance; //How long the collider is 
 
-    [SerializeField] private int damage;
+    [SerializeField] private int damage; //Enemy damge dealt 
 
     [SerializeField] private BoxCollider2D boxCollider;
 
@@ -22,12 +22,12 @@ public class MeleeEnemy : MonoBehaviour
 
     [SerializeField] private LayerMask playerLayer;
 
-    private float cooldownTimer = Mathf.Infinity;
+    private float cooldownTimer = Mathf.Infinity; //to give the enmeny the ability to attack right awav 
 
 
     [Header("Player Sound")]
 
-    [SerializeField] private AudioClip attackSound;
+    [SerializeField] private AudioClip attackSound; //Plays attack audio clip
 
     // References
     private Health playerHealth;
