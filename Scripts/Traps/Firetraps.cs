@@ -4,17 +4,17 @@ using System.Collections;
 
 public class Firetraps : MonoBehaviour
 {
-    [SerializeField] private float damage;
+    [SerializeField] private float damage; //damage variable
 
     [Header("Firetrap Timers")]
 
-    [SerializeField] private float activationDelay;
+    [SerializeField] private float activationDelay; //delay time
 
-    [SerializeField] private float activeTime;
+    [SerializeField] private float activeTime; //amount of time trap stays active
 
-    private Animator anim;
+    private Animator anim; //reference to animator
 
-    private SpriteRenderer spriteRend;
+    private SpriteRenderer spriteRend; //reference to spriterender
 
 
     [Header("SFX")]
@@ -31,9 +31,9 @@ public class Firetraps : MonoBehaviour
 
     private void Awake()
     {
-        anim = GetComponent<Animator>();
+        anim = GetComponent<Animator>(); //grabs reference
 
-        spriteRend = GetComponent<SpriteRenderer>();
+        spriteRend = GetComponent<SpriteRenderer>(); //grabs reference
     }
 
     private void Update()
@@ -46,16 +46,16 @@ public class Firetraps : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.tag == "Player")
+        if (collision.tag == "Player") //checks if trap collides with player
         {
-            playerHealth = collision.GetComponent<Health>();
+            playerHealth = collision.GetComponent<Health>(); 
 
             if (!triggered)
             {
-                StartCoroutine(ActiveFiretrap());
+                StartCoroutine(ActiveFiretrap()); //triggers trap
             }
             if (active)
-                collision.GetComponent<Health>().TakeDamage(damage);
+                collision.GetComponent<Health>().TakeDamage(damage); //damages player
         }
     }
 
@@ -67,7 +67,7 @@ public class Firetraps : MonoBehaviour
      
     }
 
-    private IEnumerator ActiveFiretrap()
+    private IEnumerator ActiveFiretrap() 
     {
         // Turn sprite red notify the player and trigger the trap
 
@@ -82,7 +82,7 @@ public class Firetraps : MonoBehaviour
 
         spriteRend.color = Color.white; //turn the sprite back to its initial colour
 
-        active = true;
+        active = true; //trap will be activated 
 
         anim.SetBool("activated", true);
 
